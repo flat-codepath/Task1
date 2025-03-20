@@ -1,0 +1,56 @@
+.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Environment variables
+.enve
+*.env
+
+# Django stuff
+db.sqlite3
+*.log
+
+# Virtual environment
+venv/
+.env/
+*.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Static and media files
+staticfiles/
+media/
+
+# Migrations
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# Compiled files
+*.so
+*.out
+*.o
+
+# Node modules (if using frontend with React/Vite)
+node_modules/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+
+# pytest
+.pytest_cache/
+
+# Other
+*.bak
+.DS_Store

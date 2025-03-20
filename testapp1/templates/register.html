@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <h1>User Registration</h1>
+ <hr>
+  <form method="POST" novalidate>
+      {% csrf_token %}
+      {%  for fm in form %}
+          {{fm.label_tag}}{{ fm}}{{ fm.errors|striptags}}<br><br>
+     {% endfor %}
+     <input type="submit" value="submit">
+      <br><br>
+        <!-- <button type="submit"><a href="/login">click  here to LOGIN</a></button> clik here login -->
+  </form>
+   {% if messages %}
+       {% for message in messages %}
+      <h2 style="color: red"> {{message }}</h2>
+      {% endfor %}
+  {% endif %}
+</body>
+</html>
