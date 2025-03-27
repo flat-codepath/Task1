@@ -5,18 +5,19 @@ from . models import User,Profile,Teacher,Student,Admin,Class,Section,Subject,Su
 class AdminProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model=Admin
-        fields=['name','date_of_birth','date_of_joining','phone_number','address']
+        fields=['id','name','date_of_birth','date_of_joining','phone_number','address']
 
 
 class TeacherProfileSerialzier(serializers.ModelSerializer):
     class Meta:
         model = Teacher
-        fields=['name','date_of_birth','date_of_joining','phone_number','address','subjects','salary']
+        fields=['id','name','date_of_birth','date_of_joining','teacher_class',
+                'phone_number','address','subjects','salary']
 
-class StudentProfielSerialzier(serializers.ModelSerializer):
+class StudentProfileSerialzier(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields=['name','date_of_birth','date_of_joining','phone_number','address','roll_number','student_class','student_section']
+        fields=['id','name','date_of_birth','date_of_joining','phone_number','address','roll_number','student_class','student_section']
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password2=serializers.CharField(style={'intputType':'password'},write_only=True)
@@ -57,7 +58,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             
         if role == 'teacher':
             if not data.get('subjects') or not data.get('salary'):
-                raise serializers.ValidationError("Please Provide the Above details")
+                raise serializers.ValidationError("Please Provide the Above  details")
         return data
     
         
@@ -98,7 +99,6 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         
 
     
-class UserLoginSerarilizer(serializers.ModelSerializer):
-   class Meta:
-       model=User
-       fields=['username','password']
+class UserLoginSerializer(serializers.Serializer):
+    username = serializers.CharField()
+    password = serializers.CharField(write_only=True)

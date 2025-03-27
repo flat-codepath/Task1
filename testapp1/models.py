@@ -90,7 +90,7 @@ class Admin(Profile):
         return self.name
 
 class Teacher(Profile):
-    # teacher_class=models.OneToOneField(Class,on_delete=models.SET_NULL,blank=True,null=True,related_name='class_teacher')
+    teacher_class=models.OneToOneField(Class,on_delete=models.SET_NULL,blank=True,null=True,related_name='class_teacher')
     subjects=models.ManyToManyField(Subject,related_name='teachers')
     salary=models.IntegerField(null=True,blank=True)
     
